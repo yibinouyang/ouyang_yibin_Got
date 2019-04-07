@@ -1,1 +1,2 @@
 # GOT_build
+In this project, I changed the previous click on the shield play the video to clicked on the image to play the video.the images will display before the video. And I added a rotation effect when I clicked on the shield, and implemented some custom controls with JavaScript. For example, clicking the image at the bottom of the page can pause the video playback video and adjust the volume.

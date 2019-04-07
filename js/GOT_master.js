@@ -6,6 +6,7 @@
 
 
 	const sigils = document.querySelectorAll('.sigil-container'),
+		images = document.querySelectorAll('.house-image'),
 		lightbox = document.querySelector('.lightbox'),
 		video = document.querySelector('video'),
 		lbClose = document.querySelector('.lightbox-close'),
@@ -71,7 +72,7 @@
 
 	function openLightbox() {
 		// debugger;
-		let targetHouse = this.className.split(" ")[1];
+		let targetHouse = this.dataset.video;
 
 		// this gives us a lowercase house name -> the second class on all of the shields ie stark, baratheon
 		// flip this to uppercase
@@ -100,7 +101,21 @@
 		video.pause();
 	}
 
-	function animationBanners() {
+	function animationBanners(e) {
+
+//
+var sigil = e.currentTarget;
+
+var tl = new TimelineLite();
+
+tl.to(sigil, 2, {rotation:40,ease:Quad.easeInOut})
+.to(sigil, 0.5, {rotation:0,ease:Quad.easeInOut});
+
+
+
+//
+
+
 		// move the banners to the left so that the current house banner is move
 		const offSet = 600;
 
@@ -121,9 +136,9 @@
 
 	// function {
 	sigils.forEach(sigil => sigil.addEventListener('click', animationBanners));
-
+	images.forEach(image => image.addEventListener('click', openLightbox))
 	// sigils.forEach(sigil => sigil.addEventListener('click', openLightbox));
-	sigils.forEach(sigil => sigil.addEventListener('click', openLightbox));
+	// sigils.forEach(sigil => sigil.addEventListener('click', openLightbox));
 	video.addEventListener('ended', closeLightbox);
 	lbClose.addEventListener('click', closeLightbox);
 

@@ -40,7 +40,7 @@ main {
 	position:relative; 
 	width:4000px;
 	/* transition: all .5s;*/ }
-#houseImages img { float:left; }
+#houseImages img {float:left;cursor: pointer;}
 
 #bottomNav { margin-top:30px; }
 
