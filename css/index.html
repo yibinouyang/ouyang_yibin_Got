@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Traversal</title>
+    <link href="css/meyerReset.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="css/GOT_master.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+</head>
+
+<body>
+    <main>
+
+        <section id="imageContainer">
+            <div id="houseImages" style="right 0">
+                <!-- add in all of the images to make a scrolling "banner" -->
+                <img class="house-image" src="images/stark.jpg" data-video="stark" />
+                <img class="house-image" src="images/baratheon.jpg" data-video="baratheon"/>
+                <img class="house-image" src="images/lannister.jpg" data-video="lannister"/>
+                <img class="house-image" src="images/tully.jpg" data-video="tully"/>
+                <img class="house-image" src="images/greyjoy.jpg" data-video="greyjoy"/>
+                <img class="house-image" src="images/arryn.jpg" data-video="arryn"/>
+            </div>
+        </section>
+
+        <nav id="bottomNav">
+            <ul id="navList">
+                <!-- custom data attribute, allowing to pass custom data https://developer.mozilla.org/en/docs/Web/API/HTMLElement/dataset -->
+                <li>
+                    <div class="sigil-container stark" data-offset="0"></div>
+                </li>
+                <li>
+                    <div class="sigil-container baratheon" data-offset="1"></div>
+                </li>
+                <li>
+                    <div class="sigil-container lannister" data-offset="2"></div>
+                </li>
+                <li>
+                    <div class="sigil-container tully" data-offset="3"></div>
+                </li>
+                <li>
+                    <div class="sigil-container greyjoy" data-offset="4"></div>
+                </li>
+                <li>
+                    <div class="sigil-container arryn" data-offset="5"></div>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- replace this with the house name -->
+        <h1 class="house-name">clever tagline goes here</h1>
+
+        <!-- replace this with house details (github gist) -->
+        <p class="house-info">
+            this will get replaced when we click on a shield
+        </p>
+    </main>
+    <!--end mainContainer-->
+
+    <!-- lightbox for highlighted content -->
+    <section class="lightbox">
+        <!-- this will by dynamic shortly -->
+        <span class="lightbox-close">X</span>
+        <video id="lhm_video" src="video/House-Stark.mp4" muted autoplay controls></video>
+    </section>
+
+    <div class="stop">
+        <a href="javascript:void(0);" onclick="getCurrentTime();">Get Time</a>
+        <a href="javascript:void(0);" onclick="playOrPaused(this);">
+            <img src="images/stop.jpg" alt="stop" width="30px" height="30px">
+        </a>
+        <a href="javascript:void(0);" onclick="muted(this);">
+            <img src="images/voice.jpg" alt="voice" width="30px" height="30px">
+        </a>
+        <input type="button" value="+" id="upVol" onclick="vol(  'up' , this )" />volume<input type="button" value="-"
+            onclick="vol(  'down' ,this )" />
+
+            Current volume：<span id="nowVol"> - </span>
+    </div>
+
+    <script src="js/GOT_master.js"></script>
+</body>
+
+</html>
